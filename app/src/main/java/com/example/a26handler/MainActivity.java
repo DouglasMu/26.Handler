@@ -7,20 +7,15 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
+
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
 public class MainActivity extends AppCompatActivity {
 
-    /**
-     * ATTENTION: This was auto-generated to implement the App Indexing API.
-     * See https://g.co/AppIndexing/AndroidStudio for more information.
-     */
+
     private GoogleApiClient client;
 
     @Override
@@ -34,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_SHORT)
                         .setAction("Action", null).show();
             }
         });
@@ -56,10 +51,10 @@ public class MainActivity extends AppCompatActivity {
                     Message msg = new Message();
                     msg.arg1 = progress;
                     handler.sendMessage(msg);
-                    progress += 10;
+                    progress = progress+10;
 
                     try {
-                        Thread.sleep(2000);
+                        Thread.sleep(2500);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -71,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
         };
 
 
-        Button button = (Button) findViewById(R.id.btnStart);
+        Button button = (Button) findViewById(R.id.Start);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -80,8 +75,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
+
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
 
